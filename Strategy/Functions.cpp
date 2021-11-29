@@ -1,12 +1,15 @@
 #include "Functions.h"
 
-double F0::operator()(double x) const {
+double ParabolaWOffset::operator()(double x) const
+{
 	return x * x - 9;
 }
 
-F0::~F0() = default;
+ParabolaWOffset::~ParabolaWOffset() = default;
 
-double SIN::operator()(double x) const {
+double Sin::operator()(double x) const
+{
 	return sin(x);
 }
-SIN::~SIN() = default;
+
+Sin::~Sin() = default;

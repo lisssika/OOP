@@ -141,14 +141,14 @@
   <ItemGroup>
     <ClInclude Include="Derivative.h" />
     <ClInclude Include="Functions.h" />
-    <ClInclude Include="Methods.h" />
+    <ClInclude Include="RootFindingAlgorithms.h" />
     <ClInclude Include="Solver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Derivative.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Methods.cpp" />
+    <ClCompile Include="RootFindingAlgorithms.cpp" />
     <ClCompile Include="Solver.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

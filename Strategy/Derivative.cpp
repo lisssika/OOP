@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <limits>
 
-double NumericalDerivative::operator()(IFunc const& f, double x, double delta) const
+double NumericalDerivative::operator()(const IFunc& f, double x, double delta) const
 {
 	if (fabs(delta) < std::numeric_limits<double>::epsilon())
 	{
