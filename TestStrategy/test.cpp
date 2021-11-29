@@ -6,7 +6,7 @@
 
 TEST(Parabola, bisection)
 {
-	std::unique_ptr<IMethod> bisection = std::make_unique<Bisection>();
+	std::unique_ptr<IRootFindingAlgorithm> bisection = std::make_unique<Bisection>();
 	const Solver solver(std::move(bisection));
 	const ParabolaWOffset parabola_w_offset;
 	double epsilon = 1.e-5;
@@ -15,7 +15,7 @@ TEST(Parabola, bisection)
 
 TEST(Parabola, secant)
 {
-	std::unique_ptr<IMethod>secant = std::make_unique<Secant>();
+	std::unique_ptr<IRootFindingAlgorithm>secant = std::make_unique<Secant>();
 	const Solver solver(std::move(secant));
 	const ParabolaWOffset parabola_w_offset;
 	const double epsilon = 1.e-5;
@@ -24,7 +24,7 @@ TEST(Parabola, secant)
 
 TEST(Parabola, newton)
 {
-	std::unique_ptr<IMethod> newton = std::make_unique<Newton>();
+	std::unique_ptr<IRootFindingAlgorithm> newton = std::make_unique<Newton>();
 	const Solver solver(std::move(newton));
 	const ParabolaWOffset parabola_w_offset;
 	const double epsilon = 1.e-5;
@@ -33,7 +33,7 @@ TEST(Parabola, newton)
 
 TEST(ThrowExcept, bisection)
 {
-	std::unique_ptr<IMethod> bisection = std::make_unique<Bisection>();
+	std::unique_ptr<IRootFindingAlgorithm> bisection = std::make_unique<Bisection>();
 	const Solver solver(std::move(bisection));
 	const ParabolaWOffset parabola_w_offset;
 	double epsilon = 1.e-5;
@@ -42,7 +42,7 @@ TEST(ThrowExcept, bisection)
 
 TEST(ThrowExcept, secant)
 {
-	std::unique_ptr<IMethod>secant = std::make_unique<Secant>();
+	std::unique_ptr<IRootFindingAlgorithm>secant = std::make_unique<Secant>();
 	const Solver solver(std::move(secant));
 	const ParabolaWOffset parabola_w_offset;
 	const double epsilon = 1.e-5;
@@ -51,7 +51,7 @@ TEST(ThrowExcept, secant)
 
 TEST(Sin_, bisection)
 {
-	std::unique_ptr<IMethod> bisection = std::make_unique<Bisection>();
+	std::unique_ptr<IRootFindingAlgorithm> bisection = std::make_unique<Bisection>();
 	const Solver solver(std::move(bisection));
 	const Sin sin_;
 	double epsilon = 1.e-5;
@@ -60,7 +60,7 @@ TEST(Sin_, bisection)
 
 TEST(Sin_, secant)
 {
-	std::unique_ptr<IMethod>secant = std::make_unique<Secant>();
+	std::unique_ptr<IRootFindingAlgorithm>secant = std::make_unique<Secant>();
 	const Solver solver(std::move(secant));
 	const Sin sin_;
 	const double epsilon = 1.e-5;
@@ -69,7 +69,7 @@ TEST(Sin_, secant)
 
 TEST(Sin_, newton)
 {
-	std::unique_ptr<IMethod> newton = std::make_unique<Newton>();
+	std::unique_ptr<IRootFindingAlgorithm> newton = std::make_unique<Newton>();
 	const Solver solver(std::move(newton));
 	const Sin sin_;
 	const double epsilon = 1.e-5;

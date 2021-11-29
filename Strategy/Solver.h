@@ -6,8 +6,8 @@
 class Solver final
 {
 private:
-	std::unique_ptr<IMethod> m_;
+	std::unique_ptr<IRootFindingAlgorithm> m_;
 public:
-	explicit Solver(std::unique_ptr<IMethod> m);
+	explicit Solver(std::unique_ptr<IRootFindingAlgorithm> m);
 	double operator()(const IFunc& f, double x_left, double x_right, double epsilon) const;
 };

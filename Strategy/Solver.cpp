@@ -2,7 +2,7 @@
 #include  <memory>
 #include <utility>
 
-Solver::Solver(std::unique_ptr<IMethod> m) : m_(std::move(m))
+Solver::Solver(std::unique_ptr<IRootFindingAlgorithm> m) : m_(std::move(m))
 {
 } 
 

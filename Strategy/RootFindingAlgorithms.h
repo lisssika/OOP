@@ -4,28 +4,28 @@
 #include  <memory>
 
 
-class IMethod
+class IRootFindingAlgorithm
 {
 public:
 	virtual double operator()(const IFunc& f, double x_left, double x_right, double epsilon) const = 0;
-	virtual ~IMethod() = default;
+	virtual ~IRootFindingAlgorithm() = default;
 };
 
-class Bisection final : public IMethod
+class Bisection final : public IRootFindingAlgorithm
 {
 public:
 	double operator()(const IFunc& f, double x_left, double x_right, double epsilon) const override;
 	~Bisection() override;
 };
 
-class Secant final : public IMethod
+class Secant final : public IRootFindingAlgorithm
 {
 public:
 	double operator()(const IFunc& f, double x1, double x2, double epsilon) const override;
 	~Secant() override;
 };
 
-class Newton final : public IMethod
+class Newton final : public IRootFindingAlgorithm
 {
 private:
 	std::unique_ptr<IDerivative> derivative_;
