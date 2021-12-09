@@ -30,7 +30,7 @@ class Newton final : public IRootFindingAlgorithm
 private:
 	std::unique_ptr<IDerivative> derivative_;
 public:
-	Newton();
+	Newton(std::unique_ptr<IDerivative> derivative);
 	double operator()(const IFunc& f, double x1, double x2, double epsilon) const override;
 	~Newton() override;
 };

@@ -76,9 +76,9 @@ double Secant::operator()(const IFunc& f, double x1, double x2, double epsilon) 
 
 Secant::~Secant() = default;
 
-Newton::Newton()
+Newton::Newton(std::unique_ptr<IDerivative> derivative)
 {
-	derivative_ = std::make_unique<NumericalDerivative>();
+	derivative_ = std::move(derivative);
 }
 
 double Newton::operator()(const IFunc& f, double x1, double x2, double epsilon) const

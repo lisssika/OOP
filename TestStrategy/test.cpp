@@ -24,7 +24,8 @@ TEST(Parabola, secant)
 
 TEST(Parabola, newton)
 {
-	std::unique_ptr<IRootFindingAlgorithm> newton = std::make_unique<Newton>();
+	std::unique_ptr<IDerivative> derivative (new NumericalDerivative);
+	std::unique_ptr<IRootFindingAlgorithm> newton = std::make_unique<Newton>(std::move(derivative));
 	const Solver solver(std::move(newton));
 	const ParabolaWOffset parabola_w_offset;
 	const double epsilon = 1.e-5;
@@ -69,7 +70,8 @@ TEST(Sin_, secant)
 
 TEST(Sin_, newton)
 {
-	std::unique_ptr<IRootFindingAlgorithm> newton = std::make_unique<Newton>();
+	std::unique_ptr<IDerivative> derivative(new NumericalDerivative);
+	std::unique_ptr<IRootFindingAlgorithm> newton = std::make_unique<Newton>(std::move(derivative));
 	const Solver solver(std::move(newton));
 	const Sin sin_;
 	const double epsilon = 1.e-5;
