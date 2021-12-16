@@ -14,10 +14,11 @@ int main()
 		a.push_back(-5 + i * 0.1);
 		b.push_back(sin(-5 + i * 0.1));
 	}
-	std::unique_ptr<IRootFindingAlgorithm> bisection = std::make_unique<Bisection>(); //  (new Bisection);
+	std::unique_ptr<IRootFindingAlgorithm<double, double>> bisection = std::make_unique<Bisection>(); //  (new Bisection);
 	//Secant* secant = new(Secant );
 	//Newton* newton = new(Newton );
-	const Solver solver(std::move(bisection));
+	//Solver<double, double> solver_(std::make_unique<Bisection>());
+	const Solver<double, double> solver(std::move(bisection));
 	try
 	{
 		const ParabolaWOffset f0;

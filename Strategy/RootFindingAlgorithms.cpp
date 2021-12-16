@@ -81,7 +81,7 @@ Newton::Newton(std::unique_ptr<IDerivative> derivative)
 	derivative_ = std::move(derivative);
 }
 
-double Newton::operator()(const IFunc& f, double x1, double x2, double epsilon) const
+double Newton::operator()(const IFunc& f, double x1,double epsilon) const
 {
 	double x = x1;
 	double f_x = f(x);

@@ -3,11 +3,26 @@
 #include "RootFindingAlgorithms.h"
 #include <memory>
 
+//IRootFindingAlgorithm<double>;
+//IRootFindingAlgorithm<double, double>;
+
+template<typename ...Arguments>
 class Solver final
 {
 private:
-	std::unique_ptr<IRootFindingAlgorithm> m_;
+	std::unique_ptr<IRootFindingAlgorithm<Arguments...>> m_;
 public:
-	explicit Solver(std::unique_ptr<IRootFindingAlgorithm> m);
-	double operator()(const IFunc& f, double x_left, double x_right, double epsilon) const;
+	explicit Solver(std::unique_ptr<IRootFindingAlgorithm<Arguments...>> m);
+	double operator()(const IFunc& f, Arguments...x, double epsilon) const;
 };
+
+template <typename ... Arguments>
+inline Solver<Arguments...>::Solver(std::unique_ptr<IRootFindingAlgorithm<Arguments...>> m):m_(std::move(m)){}
+
+template <typename ... Arguments>
+inline double Solver<Arguments...>::operator()(const IFunc& f, Arguments... x, double epsilon) const
+{
+	return m_->operator()(f, x..., epsilon);
+}
+
+

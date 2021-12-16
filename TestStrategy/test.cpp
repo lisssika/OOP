@@ -6,8 +6,8 @@
 
 TEST(Parabola, bisection)
 {
-	std::unique_ptr<IRootFindingAlgorithm> bisection = std::make_unique<Bisection>();
-	const Solver solver(std::move(bisection));
+	std::unique_ptr<IRootFindingAlgorithm<double, double>> bisection = std::make_unique<Bisection>();
+	const Solver<double, double> solver(std::move(bisection));
 	const ParabolaWOffset parabola_w_offset;
 	double epsilon = 1.e-5;
 	EXPECT_NEAR(solver(parabola_w_offset, -1, -10, epsilon), -3., epsilon * 10);
@@ -15,8 +15,8 @@ TEST(Parabola, bisection)
 
 TEST(Parabola, secant)
 {
-	std::unique_ptr<IRootFindingAlgorithm>secant = std::make_unique<Secant>();
-	const Solver solver(std::move(secant));
+	std::unique_ptr<IRootFindingAlgorithm<double, double>>secant = std::make_unique<Secant>();
+	const Solver<double, double> solver(std::move(secant));
 	const ParabolaWOffset parabola_w_offset;
 	const double epsilon = 1.e-5;
 	EXPECT_NEAR(solver(parabola_w_offset, -1, -10, epsilon), -3., epsilon * 10);
@@ -25,17 +25,17 @@ TEST(Parabola, secant)
 TEST(Parabola, newton)
 {
 	std::unique_ptr<IDerivative> derivative (new NumericalDerivative);
-	std::unique_ptr<IRootFindingAlgorithm> newton = std::make_unique<Newton>(std::move(derivative));
-	const Solver solver(std::move(newton));
+	std::unique_ptr<IRootFindingAlgorithm<double>> newton = std::make_unique<Newton>(std::move(derivative));
+	const Solver<double> solver(std::move(newton));
 	const ParabolaWOffset parabola_w_offset;
 	const double epsilon = 1.e-5;
-	EXPECT_NEAR(solver(parabola_w_offset, -1, -10, epsilon), -3., epsilon * 10);
+	EXPECT_NEAR(solver(parabola_w_offset, -1, epsilon), -3., epsilon * 10);
 }
 
 TEST(ThrowExcept, bisection)
 {
-	std::unique_ptr<IRootFindingAlgorithm> bisection = std::make_unique<Bisection>();
-	const Solver solver(std::move(bisection));
+	std::unique_ptr<IRootFindingAlgorithm<double, double>> bisection = std::make_unique<Bisection>();
+	const Solver<double, double> solver(std::move(bisection));
 	const ParabolaWOffset parabola_w_offset;
 	double epsilon = 1.e-5;
 	EXPECT_THROW(solver(parabola_w_offset, -4, -10, epsilon), std::runtime_error);
@@ -43,8 +43,8 @@ TEST(ThrowExcept, bisection)
 
 TEST(ThrowExcept, secant)
 {
-	std::unique_ptr<IRootFindingAlgorithm>secant = std::make_unique<Secant>();
-	const Solver solver(std::move(secant));
+	std::unique_ptr<IRootFindingAlgorithm<double, double>>secant = std::make_unique<Secant>();
+	const Solver<double, double> solver(std::move(secant));
 	const ParabolaWOffset parabola_w_offset;
 	const double epsilon = 1.e-5;
 	EXPECT_THROW(solver(parabola_w_offset, -4, -10, epsilon), std::runtime_error);
@@ -52,8 +52,8 @@ TEST(ThrowExcept, secant)
 
 TEST(Sin_, bisection)
 {
-	std::unique_ptr<IRootFindingAlgorithm> bisection = std::make_unique<Bisection>();
-	const Solver solver(std::move(bisection));
+	std::unique_ptr<IRootFindingAlgorithm<double, double>> bisection = std::make_unique<Bisection>();
+	const Solver<double, double> solver(std::move(bisection));
 	const Sin sin_;
 	double epsilon = 1.e-5;
 	EXPECT_NEAR(solver(sin_, -3, 3, epsilon), 0.f, epsilon * 10);
@@ -61,8 +61,8 @@ TEST(Sin_, bisection)
 
 TEST(Sin_, secant)
 {
-	std::unique_ptr<IRootFindingAlgorithm>secant = std::make_unique<Secant>();
-	const Solver solver(std::move(secant));
+	std::unique_ptr<IRootFindingAlgorithm<double, double>>secant = std::make_unique<Secant>();
+	const Solver<double, double> solver(std::move(secant));
 	const Sin sin_;
 	const double epsilon = 1.e-5;
 	EXPECT_NEAR(solver(sin_, -3, 3, epsilon), 0.f, epsilon * 10);
@@ -71,9 +71,9 @@ TEST(Sin_, secant)
 TEST(Sin_, newton)
 {
 	std::unique_ptr<IDerivative> derivative(new NumericalDerivative);
-	std::unique_ptr<IRootFindingAlgorithm> newton = std::make_unique<Newton>(std::move(derivative));
-	const Solver solver(std::move(newton));
+	std::unique_ptr<IRootFindingAlgorithm<double>> newton = std::make_unique<Newton>(std::move(derivative));
+	const Solver<double> solver(std::move(newton));
 	const Sin sin_;
 	const double epsilon = 1.e-5;
-	EXPECT_NEAR(solver(sin_, -1, 1, epsilon), 0.f, epsilon * 10);
+	EXPECT_NEAR(solver(sin_, -1, epsilon), 0.f, epsilon * 10);
 }
