@@ -2,9 +2,7 @@
 #include "Functions.h"
 #include "RootFindingAlgorithms.h"
 #include <memory>
-
-//IRootFindingAlgorithm<double>;
-//IRootFindingAlgorithm<double, double>;
+#include <utility>
 
 template<typename ...Arguments>
 class Solver final

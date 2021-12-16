@@ -5,6 +5,8 @@
 #include <memory>
 #include <utility>
 
+#include "Bisection.h"
+
 int main()
 {
 	std::vector<double> a;

@@ -1,9 +1,13 @@
 #include "pch.h"
-#include "../Strategy/Solver.h"
-#include <stdexcept>
 #include <memory>
+#include <stdexcept>
 #include <utility>
-
+#include "../Strategy/Solver.h"
+#include "../Strategy/Newton.h"
+#include "../Strategy/Secant.h"
+#include "../Strategy/Bisection.h"
+#include "../Strategy/Derivative.h"
+#include "../Strategy/Functions.h"
 TEST(Parabola, bisection)
 {
 	std::unique_ptr<IRootFindingAlgorithm<double, double>> bisection = std::make_unique<Bisection>();

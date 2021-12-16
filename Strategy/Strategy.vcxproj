@@ -139,17 +139,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bisection.h" />
     <ClInclude Include="Derivative.h" />
+    <ClInclude Include="double_comparison.h" />
     <ClInclude Include="Functions.h" />
+    <ClInclude Include="Newton.h" />
     <ClInclude Include="RootFindingAlgorithms.h" />
+    <ClInclude Include="Secant.h" />
     <ClInclude Include="Solver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bisection_.cpp" />
     <ClCompile Include="Derivative.cpp" />
+    <ClCompile Include="double_comparison.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="RootFindingAlgorithms.cpp" />
-    <ClCompile Include="Solver.cpp" />
+    <ClCompile Include="Newton_.cpp" />
+    <ClCompile Include="Secant_.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
